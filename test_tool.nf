@@ -50,8 +50,10 @@ workflow sidd2{
 }
 
 workflow metabat2 {
-    bam=file("/Users/sidd/Research/autometa_v2/test_data/alignment.bam")
-    assembly=file("/Users/sidd/Research/autometa_v2/test_data/78mbp_metagenome.fna")
+    //bam=file("/Users/sidd/Research/autometa_v2/test_data/alignment.bam")
+    //assembly=file("/Users/sidd/Research/autometa_v2/test_data/78mbp_metagenome.fna")
+    bam=file("/media/bigdrive1/sidd/nextflow_trial/autometa_runs/78mbp_manual/interim/cov-alignmentsieg74wbx/alignment.bam")
+    assembly=file("/media/bigdrive1/sidd/nextflow_trial/test_data/78/78mbp_metagenome.fna")
     Channel
         .fromPath(assembly)
             .map { name ->
