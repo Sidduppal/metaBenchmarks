@@ -24,7 +24,7 @@ process METABAT2 {
     path(bam)
 
     output:
-    tuple val(meta), path("*.fa"),  emit: bins
+    tuple val(meta), path("bins/*.fa"),  emit: bins
     tuple val(meta), path("depth.txt"), emit: depth
     path "*.version.txt"          , emit: version
 
@@ -44,11 +44,13 @@ process METABAT2 {
         -t "$task.cpus" \\
         -i "$assembly" \\
         -a depth.txt  \\
-        -o "MetaBat2/${assembly.simpleName}" \\
+        -o "bins/${assembly.simpleName}" \\
         -m ${params.length_cutoff} \\
         --unbinned \\
         --seed ${params.seed} \\
         $options.args
+
+    # The following command does not work correctly need to format this.
 
     echo \$(metabat2 --help 2>&1) | sed "s/^.*version 2\\://; s/ (Bioconda.*//" > ${software}.version.txt
     """
