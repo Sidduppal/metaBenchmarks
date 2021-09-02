@@ -27,6 +27,7 @@ workflow chase{
                 }
             .set { ch_fasta }
 
+
     FASTQC(ch_fasta)
     //KRAKEN2_KRAKEN2 (ch_fasta, db)
 }
@@ -39,6 +40,7 @@ workflow sidd2{
         .fromPath(reads)
             .map { read -> tuple(read.simpleName, read)}
             .set { ch_fasta }
+
 
     FASTQC(ch_fasta)
     //KRAKEN2_KRAKEN2 (ch_fasta, db)
