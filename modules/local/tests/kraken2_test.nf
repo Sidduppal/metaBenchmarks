@@ -9,7 +9,7 @@ include {KRAKEN2} from '../kraken2.nf'
 // Change the bath to aligned and sorted bam file as well as the assembly file
 
 workflow  {
-    assembly=file("/media/bigdrive1/sidd/nextflow_trial/autometa_runs/78mbp_manual/interim/78mbp_metagenome.unclassified.fna")
+    assembly=file("/media/bigdrive1/sidd/nextflow_trial/autometa_runs/78mbp_manual/interim/78mbp_metagenome.filtered.fna")
     db=file("/media/bigdrive1/Databases/kraken2/kraken2_db")
     Channel
         .fromPath(assembly)
